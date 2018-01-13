@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Hebrew1.Models.ViewModels.WordsVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add Word", "AddWord")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Hebrew Word
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuniform)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CuniformImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phonetic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meaning)
+        </th>
+        <th>
+            Related Words
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HebrewWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuniform)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuniformImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phonetic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meaning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelatedWords)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
